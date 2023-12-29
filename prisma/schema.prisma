@@ -1,0 +1,23 @@
+// https://vercel.com/guides/nextjs-prisma-postgres
+
+datasource db {
+    provider = "postgresql"
+    url = env("POSTGRES_PRISMA_URL")
+    directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model Products {
+    id      Int @id @default(autoincrement())
+    name    String @unique
+    value   Int
+    description String
+}
+
+model User {
+    id      Int @id @default(autoincrement())
+    username    String @unique
+}
