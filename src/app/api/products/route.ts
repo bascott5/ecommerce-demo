@@ -1,10 +1,13 @@
+import { Decimal } from "@prisma/client/runtime/library";
 import prisma from "../../../../prisma/lib/prisma";
 
 interface Data {
     id: number,
     name: string,
-    value: number,
-    description: string
+    price: Decimal,
+    description: string,
+    keywords: string[],
+    image: Buffer
 }
 
 export const getProducts = async () => {

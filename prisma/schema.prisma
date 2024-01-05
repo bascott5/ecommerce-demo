@@ -10,11 +10,13 @@ generator client {
     provider = "prisma-client-js"
 }
 
-model Products {
+model products {
     id      Int @id @default(autoincrement())
     name    String @unique
-    value   Int
+    price   Decimal @db.Decimal(4,2)
     description String
+    keywords String[]
+    image Bytes
 }
 
 model User {
