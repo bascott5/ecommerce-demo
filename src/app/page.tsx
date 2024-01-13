@@ -1,10 +1,10 @@
-import styles from './styles/page.module.css'
-import Products from '@/components/products';
+import styles from './styles/page.module.css';
+import Index from '.';
 
 export default async function Home() {
   return (
     <main className={styles.main}>
-      <Products />
+      <Index />
     </main>
   )
 }

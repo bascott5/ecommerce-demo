@@ -1,0 +1,36 @@
+.content {
+    display: inline-block;
+    margin: 0px 5%;
+}
+
+.img {
+    float: left;
+    min-width: 50%;
+    width: 50%;
+    height: 100%;
+}
+
+.container {
+    float: left;
+    margin: 175px 0px 0px 55px;
+    width: 45%;
+    min-width: 45%;
+    height: auto;
+}
+
+.h1 {
+    font-size: 75px;
+}
+
+.p {
+    font-size: x-large;
+}
+
+.flexbox {
+    display: flex;
+    flex-flow: row;
+    gap: 50px;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 50px;
+}

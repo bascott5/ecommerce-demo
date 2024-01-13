@@ -16,7 +16,7 @@ model products {
     price   Decimal @db.Decimal(4,2)
     description String
     keywords String[]
-    image Bytes
+    image   Bytes
 }
 
 model User {
