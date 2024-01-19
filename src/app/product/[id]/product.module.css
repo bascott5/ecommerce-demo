@@ -1,18 +1,18 @@
 .content {
     display: inline-block;
-    margin: 0px 5%;
+    margin: 25px 15%;
 }
 
 .img {
-    float: left;
-    min-width: 50%;
-    width: 50%;
-    height: 100%;
+    object-fit: cover;
+    min-width: 45%;
+    width: 45%;
+    height: 500px;
 }
 
 .container {
-    float: left;
-    margin: 175px 0px 0px 55px;
+    float: right;
+    margin: 100px 0px 0px 55px;
     width: 45%;
     min-width: 45%;
     height: auto;
@@ -20,10 +20,34 @@
 
 .h1 {
     font-size: 75px;
+    height: 75px;
 }
 
 .p {
     font-size: x-large;
+}
+
+.price {
+    font-size: large;
+    font-weight: bold;
+}
+
+.button {
+    float: right;
+    background-color: green;
+    color: white;
+    font-size: larger;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    border-radius: 5px;
+    border-style: hidden;
+}
+
+.button:hover {
+    background-color: wheat;
+    color: green;
+    cursor: pointer;
 }
 
 .flexbox {
@@ -32,5 +56,5 @@
     gap: 50px;
     width: 50%;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 40px;
 }

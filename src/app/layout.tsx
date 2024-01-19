@@ -4,11 +4,12 @@ import './styles/globals.css';
 
 const inter = Inter({ subsets: ['latin'] })
 
+import Navbar from '@/components/navbar';
 export const metadata: Metadata = {
   title: 'Ecommerce Store',
   description: 'This is a demo of an ecommerce store',
 }
-
+// NOTE: removed body tag surrounging {children}
 export default function RootLayout({
   children,
 }: {
@@ -16,7 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <Navbar>
+        {children}
+      </Navbar>
     </html>
   )
 }
