@@ -5,7 +5,7 @@ export const getProducts = async () => {
     try {
         let res: Data[] = await prisma.products.findMany();
         let resCopy: DataCopy[] = [];
-        res?.forEach(product => resCopy.push({
+        res.forEach(product => resCopy.push({
             id: product.id,
             name: product.name,
             price: product.price.toString(),
@@ -73,4 +73,27 @@ export const getProductByKeywords = async (productId: number) => {
     } catch (e) {
         console.error(e);
     }
+}
+
+export const queryByKeywords = async (query: string) => {
+    const queriedKeywords = query.replace(/[^\w\s\']|_/g, "").split(" ");
+    const res: Data[] = await prisma.products.findMany({
+        where: {
+            keywords: {
+                hasSome: queriedKeywords
+            }
+        }
+    });
+
+    let resCopy: DataCopy[] = [];
+    res?.forEach(product => resCopy.push({
+        id: product.id,
+        name: product.name,
+        price: product.price.toString(),
+        description: product.description,
+        keywords: product.keywords,
+        image: product.image.toString()
+    }));
+
+    return resCopy;
 }
