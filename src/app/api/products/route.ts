@@ -76,7 +76,7 @@ export const getProductByKeywords = async (productId: number) => {
 }
 
 export const queryByKeywords = async (query: string) => {
-    const queriedKeywords = query.replace(/[^\w\s\']|_/g, "").split(" ");
+    const queriedKeywords: string[] = query.replace(/[^\w\s\']|_/g, "").split(" ");
     const res: Data[] = await prisma.products.findMany({
         where: {
             keywords: {
