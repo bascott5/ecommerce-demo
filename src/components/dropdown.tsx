@@ -17,7 +17,7 @@ const Dropdown: React.FC<Props> = ({ title, items }: Props) => {
     const [open, isOpen] = useState(false);
     const ref = useRef<HTMLInputElement | null>(null);
 
-    /*useEffect(() => {
+    useEffect(() => {
         if (!open) return;
         const handleClick = (e: any) => {
             if (ref.current && !ref.current.contains(e.target)) {
@@ -27,14 +27,14 @@ const Dropdown: React.FC<Props> = ({ title, items }: Props) => {
         
         document.addEventListener("click", handleClick);
         return () => document.removeEventListener("click", handleClick);
-    }, [open]);*/
+    }, [open]);
 
     return (
-        <div className={ styles.dropdown } onClick={() => isOpen(!open)}>
+        <div className={ styles.dropdownContainer } onClick={() => isOpen(!open)} onMouseOver={() => isOpen(true)} onMouseOut={() => isOpen(false)}>
             <ul className={ styles.item }>{ title }</ul>
-            <div style={{ display: open ? "block" : "none" }} ref={ ref }>
+            <div className={ styles.dropdown } style={{ display: open ? "block" : "none" }} ref={ ref }>
                 {items.map((item, index) => (
-                    <Link key={ index } href={ item.href }>{ item.name }</Link>
+                    <Link className={ styles.dropdownItem } key={ index } href={ item.href }>{ item.name }</Link>
                 ))}
             </div>
         </div>

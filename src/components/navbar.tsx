@@ -9,8 +9,8 @@ const Navbar: React.FC = () => {
         <div>
             <div className={ styles.container }>
                 <Dropdown title="Categories" items={[
-                    { name: "Fruit", href: "" },
-                    { name: "Vegetables", href: "" }
+                    { name: "Fruit", href: "/" },
+                    { name: "Vegetables", href: "/" }
                 ]} />
                 <Link href={"/"}><ul className={ styles.item }>Featured</ul></Link>
                 <Link href={""}><ul className={ styles.item }>About</ul></Link>

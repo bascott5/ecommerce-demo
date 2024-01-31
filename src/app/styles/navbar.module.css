@@ -16,7 +16,6 @@
     float: right;
     margin: 25px;
     height: 0;
-
 }
 
 .item:hover {
@@ -25,13 +24,31 @@
     cursor: pointer;
 }
 
-.dropdown {
+.dropdownContainer {
+    position: relative;
     display: inline-block;
     color: white;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: absolute;
+    min-width: 100%;
+    background-color: wheat;
 }
 
 .dropdownItem {
-    position: fixed;
-    top: 0;
-    left: 0;
+    display: block;
+    color: green;
+    z-index: 1;
+    padding: 15px 5px;
+    text-decoration: none;
+}
+
+.dropdownContainer:hover {
+    background-color: wheat;
+}
+
+.dropdownItem:hover {
+    background-color: burlywood;
 }
