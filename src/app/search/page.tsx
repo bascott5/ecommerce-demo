@@ -1,15 +1,9 @@
-"use client";
-import SearchProducts from "@/components/search-products";
-import { useSearchParams } from "next/navigation";
+import Parameters from "@/components/parameters";
 
 const Page: React.FC = () => {
-    const params = useSearchParams();
-    const search = params.get("q");
 
     return (
-        <div>
-            <SearchProducts search={ search }/>
-        </div>
+        <Parameters />
     );
 }
 
