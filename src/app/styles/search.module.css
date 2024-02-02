@@ -1,0 +1,8 @@
+.container {
+    width: 64%;
+    min-width: 64%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
