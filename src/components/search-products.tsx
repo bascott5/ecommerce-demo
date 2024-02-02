@@ -3,7 +3,7 @@ import Products from "./products";
 import styles from "../app/styles/search.module.css";
 
 interface Props {
-    search: string | null
+    search: string | string[] | undefined
 }
 
 const SearchProducts: React.FC<Props> = async ({ search }: Props) => {
