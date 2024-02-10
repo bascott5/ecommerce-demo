@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'Ecommerce Store',
   description: 'This is a demo of an ecommerce store',
 }
-// NOTE: removed body tag surrounging {children}
+
 export default function RootLayout({
   children,
 }: {

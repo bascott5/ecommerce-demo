@@ -37,7 +37,7 @@ const Filter: React.FC = () => {
             val ? color.push(key) : null;
         });
 
-        router.push("/" + search + "&type=" + type.toString() + "&color=" + options.toString());
+        router.push("/search?query=" + search + "&type=" + type.toString() + "&color=" + color.toString());
     }, [options]);
 
     return (

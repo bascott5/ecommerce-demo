@@ -13,7 +13,22 @@ export const getProducts = async () => {
             keywords: product.keywords,
             image: product.image.toString()
         }));
-        return resCopy;
+
+        let resFinal: DataCopy[][] = [];
+        let marker = 8;
+        for (let i = 1; i <= resCopy.length; i++) {
+            if (i == marker) {
+                resFinal.push(resCopy.slice(0, i));
+                marker+= 8;
+            }
+
+            if (i == resCopy.length) {
+                resFinal.push(resCopy.slice(marker - 8, resCopy.length))
+            }
+        }
+
+        return resFinal;
+
     } catch (err) {
         console.error(err);
     }
@@ -76,24 +91,28 @@ export const getProductByKeywords = async (productId: number) => {
 }
 
 export const queryByKeywords = async (query: string) => {
-    const queriedKeywords: string[] = query.replace(/[^\w\s\']|_/g, "").split(" ");
-    const res: Data[] = await prisma.products.findMany({
-        where: {
-            keywords: {
-                hasSome: queriedKeywords
+    //try {
+        const queriedKeywords: string[] = query.replace(/[^\w\s\']|_/g, "").split(" ");
+        const res: Data[] = await prisma.products.findMany({
+            where: {
+                keywords: {
+                    hasSome: queriedKeywords
+                }
             }
-        }
-    });
+        });
+        
+        let resCopy: DataCopy[] = [];
+        res?.forEach(product => resCopy.push({
+            id: product.id,
+            name: product.name,
+            price: product.price.toString(),
+            description: product.description,
+            keywords: product.keywords,
+            image: product.image.toString()
+        }));
 
-    let resCopy: DataCopy[] = [];
-    res?.forEach(product => resCopy.push({
-        id: product.id,
-        name: product.name,
-        price: product.price.toString(),
-        description: product.description,
-        keywords: product.keywords,
-        image: product.image.toString()
-    }));
-
-    return resCopy;
+        return resCopy;
+    /*} catch (e) {
+        console.error(e);
+    }*/
 }

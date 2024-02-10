@@ -1,8 +1,12 @@
 .all {
-    margin: 0px 50px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    position: relative;
+    width: 64%;
+    min-width: 64%;
+    margin: 0 auto;
+    /*TODO: create a new parent container*/
 }
 
 .container {
@@ -41,4 +45,25 @@ p.price {
     float: right;
     font-weight: bold;
     margin: 10px 15px;
+}
+
+.arrowContainer {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.arrow {
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    border-color: transparent;
+    border-radius: 5px;
+    width: 25px;
+    height: 30px;
+    margin: 0px 10px;
+}
+
+.arrow:hover {
+    background-color: wheat;
+    color: green;
 }

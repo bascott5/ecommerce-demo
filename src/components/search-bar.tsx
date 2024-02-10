@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import styles from "../app/styles/navbar.module.css"
-import Navigate from "./redirect";
 import { useRouter } from "next/navigation";
 
 const SearchBar: React.FC = () => {

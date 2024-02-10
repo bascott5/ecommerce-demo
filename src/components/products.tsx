@@ -1,11 +1,11 @@
-"use client"
+"use client";
 import { DataCopy } from '@/app/types';
 import styles from '../app/styles/products.module.css';
 import Link from 'next/link';
 
 type DataTypes = { products: DataCopy }
 
-const Products: React.FC<DataTypes> = ({products}: DataTypes) => {
+const Products: React.FC<DataTypes> = ({ products }: DataTypes) => {
     return (
         <div className={ styles.container } key={ products?.id }>
             <Link href={"/product/" + products?.id}>

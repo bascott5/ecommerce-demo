@@ -12,6 +12,7 @@ const Page: React.FC<IParams> = ({ params, searchParams }) => {
     return (
         <div>
             <SearchProducts search={ search } />
+            <Filter />
         </div>
     );
 }

@@ -11,7 +11,7 @@ const SearchProducts: React.FC<Props> = async ({ search }: Props) => {
 
     return (
         <div className={ styles.container }>
-            {results.length > 0 ? results.map(result => (
+            {results.length > 0 ? results?.map(result => (
                 <Products products={ result }/>
             )) : (
                 <p>Nothing here, try a different search!</p>
