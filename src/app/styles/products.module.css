@@ -1,12 +1,13 @@
 .all {
+    margin: 0 auto;
+    width: 64%;
+    min-width: 64%;
+}
+
+.allContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    position: relative;
-    width: 64%;
-    min-width: 64%;
-    margin: 0 auto;
-    /*TODO: create a new parent container*/
 }
 
 .container {
@@ -48,7 +49,7 @@ p.price {
 }
 
 .arrowContainer {
-    display: inline-block;
+    display: table;
     margin: 0 auto;
 }
 

@@ -17,21 +17,23 @@ const ProductsContainer: React.FC<Props> = ({ pages }: Props) => {
     const [currentPage, setPage] = useState<number>(pageNum | 0);
 
     useEffect(() => {
-        if (currentPage >= 0 && pages.length > currentPage) {
-            router.push(`/?p=${ currentPage }`);
+        if (pageNum >= 0 && pages.length > pageNum) {
+            router.push(`/?p=0`);
         }
+
+        router.push(`/?p=${ currentPage }`);
     }, [currentPage]);
 
     return (
-        <div>
-            <div className={ styles.all }>
+        <div className={ styles.all }>
+            <div className={ styles.allContainer }>
                 {pages[currentPage].map(product => (
                     <Products products={ product }/>
                 ))}
             </div>
             <div className={ styles.arrowContainer }>
-                <button className={ styles.arrow } onClick={() => setPage(currentPage - 1)}>&lt;</button>
-                <button className={ styles.arrow } onClick={() => setPage(currentPage + 1)}>&gt;</button>
+                <button className={ styles.arrow } onClick={() => currentPage - 1 >= 0 && pages.length > currentPage - 1 ? setPage(currentPage - 1) : null}>&lt;</button>
+                <button className={ styles.arrow } onClick={() => currentPage + 1 >= 0 && pages.length > currentPage + 1 ? setPage(currentPage + 1) : null}>&gt;</button>
             </div>
         </div>
     )
