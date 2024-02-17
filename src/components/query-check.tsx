@@ -1,1 +1,0 @@
-// TODO: create a redirect client component that runs before rendering the index, checking the current query to see if it is valid, if not then replace with a default valid one

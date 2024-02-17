@@ -5,22 +5,19 @@ import Products from './products';
 import { DataCopy } from '@/app/types';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-interface Props {
+interface IProps {
     pages: DataCopy[][]
 }
 
-const ProductsContainer: React.FC<Props> = ({ pages }: Props) => {
+const ProductsContainer: React.FC<IProps> = ({ pages }: IProps) => {
     const router = useRouter();
     const params = useSearchParams();
     const search = params.get("p");
-    let pageNum = parseInt(typeof search == "string" ? search : "");
+    let pageNum = parseInt(typeof search == "string" ? search : "0");
+    pageNum = pageNum >= 0 && pages.length > pageNum ? pageNum : 0;
     const [currentPage, setPage] = useState<number>(pageNum | 0);
 
     useEffect(() => {
-        if (pageNum >= 0 && pages.length > pageNum) {
-            router.push(`/?p=0`);
-        }
-
         router.push(`/?p=${ currentPage }`);
     }, [currentPage]);
 
